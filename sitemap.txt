@@ -1,0 +1,4 @@
+http://example.com/2022/03/10/test/
+http://example.com/2022/03/08/story_1/
+http://example.com/2022/03/07/hello-world/
+http://example.com/
