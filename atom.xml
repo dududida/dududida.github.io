@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://dududida.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2022-03-10T13:22:40.524Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://dududida.github.io/"/>
+  <updated>2022-03-12T12:57:31.479Z</updated>
+  <id>https://dududida.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -17,9 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://dududida.github.io/2022/03/14/%E6%91%84%E5%BD%B1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://dududida.github.io/2022/03/14/%E6%91%84%E5%BD%B1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-03-14T09:20:30.285Z</published>
+    <updated>2022-03-12T12:57:31.479Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="如何减少夜景噪点"><a href="#如何减少夜景噪点" class="headerlink" title="如何减少夜景噪点"></a>如何减少夜景噪点</h2><ol><li>降低iso (最好不要高于400)</li><li>快门速度变慢 (延长曝光时间)</li><li>使用三角架</li></ol><h2 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h2><ol><li>如果其他参数不变，曝光时间越长，照片就越亮</li><li>感光度过高容易产生噪点</li></ol><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ol><li>EV(Exposure Value,曝光值)  基本可以理解为EV越高，拍摄环境的亮度越高。(文章链接：<a href="https://zhuanlan.zhihu.com/p/36129603">摄影基础文：什么是EV？</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;如何减少夜景噪点&quot;&gt;&lt;a href=&quot;#如何减少夜景噪点&quot; class=&quot;headerlink&quot; title=&quot;如何减少夜景噪点&quot;&gt;&lt;/a&gt;如何减少夜景噪点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;降低iso (最好不要高于400)&lt;/li&gt;
+&lt;li&gt;快门速度变慢 (延长曝光时</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>loading</title>
-    <link href="http://example.com/2022/03/10/test/"/>
-    <id>http://example.com/2022/03/10/test/</id>
+    <link href="https://dududida.github.io/2022/03/10/test/"/>
+    <id>https://dududida.github.io/2022/03/10/test/</id>
     <published>2022-03-10T13:00:01.581Z</published>
     <updated>2022-03-10T13:22:40.524Z</updated>
     
@@ -38,8 +60,8 @@
   
   <entry>
     <title>电线杆子上的人</title>
-    <link href="http://example.com/2022/03/08/story_1/"/>
-    <id>http://example.com/2022/03/08/story_1/</id>
+    <link href="https://dududida.github.io/2022/03/08/story_1/"/>
+    <id>https://dududida.github.io/2022/03/08/story_1/</id>
     <published>2022-03-08T05:42:23.092Z</published>
     <updated>2022-03-10T13:22:19.593Z</updated>
     
@@ -58,8 +80,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2022/03/07/hello-world/"/>
-    <id>http://example.com/2022/03/07/hello-world/</id>
+    <link href="https://dududida.github.io/2022/03/07/hello-world/"/>
+    <id>https://dududida.github.io/2022/03/07/hello-world/</id>
     <published>2022-03-07T15:25:15.849Z</published>
     <updated>2022-03-07T15:23:24.281Z</updated>
     

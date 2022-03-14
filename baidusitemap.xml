@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2022/03/10/test/</loc>
+    <loc>https://dududida.github.io/2022/03/14/%E6%91%84%E5%BD%B1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://dududida.github.io/2022/03/10/test/</loc>
     <lastmod>2022-03-10</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/03/08/story_1/</loc>
+    <loc>https://dududida.github.io/2022/03/08/story_1/</loc>
     <lastmod>2022-03-10</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/03/07/hello-world/</loc>
+    <loc>https://dududida.github.io/2022/03/07/hello-world/</loc>
     <lastmod>2022-03-07</lastmod>
   </url>
 </urlset> 

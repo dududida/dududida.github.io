@@ -1,4 +1,5 @@
-http://example.com/2022/03/10/test/
-http://example.com/2022/03/08/story_1/
-http://example.com/2022/03/07/hello-world/
-http://example.com/
+https://dududida.github.io/2022/03/14/%E6%91%84%E5%BD%B1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+https://dududida.github.io/2022/03/10/test/
+https://dududida.github.io/2022/03/08/story_1/
+https://dududida.github.io/2022/03/07/hello-world/
+https://dududida.github.io/
