@@ -6,7 +6,7 @@
   <link href="https://dududida.github.io/atom.xml" rel="self"/>
   
   <link href="https://dududida.github.io/"/>
-  <updated>2022-03-14T16:13:54.313Z</updated>
+  <updated>2023-01-08T02:14:17.484Z</updated>
   <id>https://dududida.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://dududida.github.io/2023/01/08/6.828/"/>
+    <id>https://dududida.github.io/2023/01/08/6.828/</id>
+    <published>2023-01-08T06:50:06.704Z</published>
+    <updated>2023-01-08T02:14:17.484Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="xv6的安装"><a href="#xv6的安装" class="headerlink" title="xv6的安装"></a>xv6的安装</h1><ul><li>条件：Vmware上运行的unbuntu虚拟机</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu</span> </span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">git <span class="built_in">clone</span> git://g.csail.mit.edu/xv6-labs-2021</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">cd</span> xv6-labs-2021</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">git checkout util</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">make qemu         <span class="comment">##运行xv6</span></span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">Ctrl+a x          <span class="comment">##退出xv6</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="关于各种系统调用"><a href="#关于各种系统调用" class="headerlink" title="关于各种系统调用"></a>关于各种系统调用</h1><ul><li>pipe():<code>int pipe(int fds[2]);</code> 在进程的打开文件表中查找前两个可用位置，并将它们分配给管道的读p[0]写p[1]端。</li><li>chdir():<code>int chdir(const char *path);</code> 用于改变当前工作目录，其参数为Path 目标目录（类似于cd）</li></ul><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><ul><li>以下路径都在xv6-labs-2021/下面</li></ul><h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>user/目录下新建sleep.c，代码如下</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;kernel/types.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;kernel/stat.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;user/user.h&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;                 <span class="comment">//缺少参数</span></span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="number">2</span>,<span class="string">&quot;miss argument !\n&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> time;</span><br><span class="line">    time = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">if</span>(time&lt;<span class="number">0</span>)&#123;                 <span class="comment">//参数不合法 ，实际运行中好像没反应。但是make grade是过了</span></span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="number">2</span>,<span class="string">&quot;invalid argument !\n&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(time);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>打开Makefile，在179行找到UPROGS，在其中添加sleep。</p><p>回到xv6-labs-2021/，<code>$ make qemu</code></p><p>测试是否通过，在xv6-labs-2021/目录下：<code>$ ./grade-lab-util sleep</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;xv6的安装&quot;&gt;&lt;a href=&quot;#xv6的安装&quot; class=&quot;headerlink&quot; title=&quot;xv6的安装&quot;&gt;&lt;/a&gt;xv6的安装&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;条件：Vmware上运行的unbuntu虚拟机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>摄影学习笔记</title>
@@ -51,26 +74,6 @@
       
       
     <summary type="html">&lt;p&gt;&amp;emsp;&amp;emsp;电线杆子，一根又一根的电线杆子。电线杆子之间的电线，平行的电线构成了一条直直的，宽敞的道路。&lt;br&gt;&amp;emsp;&amp;emsp;电线杆子上的人就在这样的道路上走着，他们从这里到哪里，他们几乎不休息地走着，他们有时跳跃，有时奔跑。他们偶尔也会停下来，蹲在电</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://dududida.github.io/2022/03/07/hello-world/"/>
-    <id>https://dududida.github.io/2022/03/07/hello-world/</id>
-    <published>2022-03-07T15:25:15.849Z</published>
-    <updated>2022-03-07T15:23:24.281Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
